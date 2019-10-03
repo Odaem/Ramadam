@@ -1,0 +1,600 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Player movement/Player/Player2.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 34, 34 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 32.0
+
+[sub_resource type="PhysicsMaterial" id=4]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 512, 8 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 16, 312 )
+
+[node name="World" type="Node"]
+
+[node name="Player2" type="RigidBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 312, 296 )
+mode = 2
+physics_material_override = SubResource( 1 )
+contacts_reported = 4
+contact_monitor = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+jump_height = 96.0
+
+[node name="Sprite2" type="Sprite" parent="Player2"]
+texture = ExtResource( 2 )
+
+[node name="Detector" type="Area2D" parent="Player2"]
+editor/display_folded = true
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/Detector"]
+shape = SubResource( 2 )
+disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2"]
+shape = SubResource( 3 )
+
+[node name="Walls" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="Wall" type="StaticBody2D" parent="Walls"]
+position = Vector2( 128, 312 )
+rotation = 1.0472
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall2" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 128, 560 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall2"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall2"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall3" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 192, 560 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall3"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall3"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall4" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 256, 560 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall4"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall4"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall5" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 320, 560 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall5"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall5"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall6" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 248, 488 )
+rotation = 0.785398
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall6"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall6"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall26" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 288, 528 )
+rotation = 0.785398
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall26"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall26"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall27" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 208, 448 )
+rotation = 0.785398
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall27"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall27"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall28" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 192, 424 )
+rotation = 1.0472
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall28"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall28"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall29" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 160, 368 )
+rotation = 1.0472
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall29"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall29"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall7" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 384, 560 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall7"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall7"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall8" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 448, 560 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall8"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall8"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall9" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 512, 560 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall9"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall9"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall10" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 504, 496 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall10"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall10"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall11" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 640, 432 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall11"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall11"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall12" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 576, 560 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall12"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall12"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall13" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 640, 560 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall13"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall13"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall14" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 768, 304 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall14"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall14"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall15" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 704, 560 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall15"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall15"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall16" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 768, 560 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall16"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall16"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall17" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 832, 560 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall17"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall17"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall18" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 896, 560 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall18"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall18"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall19" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 960, 560 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall19"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall19"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall20" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 768, 368 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall20"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall20"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall22" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 832, 304 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall22"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall22"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall23" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 704, 240 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall23"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall23"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall24" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 640, 240 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall24"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall24"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall25" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 576, 240 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall25"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall25"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="Wall21" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 704, 368 )
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall21"]
+position = Vector2( 1.52588e-005, -3.05176e-005 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall21"]
+position = Vector2( 3.29018e-005, -3.8147e-005 )
+scale = Vector2( 0.607752, 2 )
+color = Color( 0.592157, 0.333333, 0.333333, 1 )
+polygon = PoolVector2Array( -52.6531, -16, 52.653, -16, 52.653, 16, -52.6531, 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+position = Vector2( 512, -8 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+position = Vector2( 1040, 304 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+position = Vector2( -16, 304 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+position = Vector2( 512, 608 )
+shape = SubResource( 6 )
