@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Player/Sword.gd" type="Script" id=1]
+[ext_resource path="res://Player/sword.tres" type="Texture" id=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.1
+bounce = 0.1
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 3.0
+height = 24.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 9, 3.99998 )
+
+[node name="Sword" type="RigidBody2D"]
+position = Vector2( 104, 63 )
+rotation = -1.5708
+collision_layer = 4
+collision_mask = 9
+physics_material_override = SubResource( 1 )
+linear_damp = 5.0
+angular_damp = 15.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 600.0
+rotation_speed = 1000.0
+move_point = Vector2( 30, 0 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 5, 0 )
+rotation = 1.5708
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 5, 0 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="BladeCollision" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BladeCollision"]
+position = Vector2( 12, 4.57764e-005 )
+shape = SubResource( 3 )
+[connection signal="body_entered" from="BladeCollision" to="." method="_on_blade_hit"]

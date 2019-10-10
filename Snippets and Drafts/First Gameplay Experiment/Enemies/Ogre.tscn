@@ -1,0 +1,118 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Enemies/Ogre.gd" type="Script" id=1]
+[ext_resource path="res://Enemies/ogre_running.tres" type="Texture" id=2]
+[ext_resource path="res://Enemies/ogre_idle.tres" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6, 2 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+length = 4.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Running"
+length = 4.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 0 ]
+}
+
+[sub_resource type="AnimationNodeBlendTree" id=6]
+graph_offset = Vector2( -368, 67 )
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "Running"
+
+[sub_resource type="AnimationNodeTimeScale" id=8]
+
+[sub_resource type="AnimationNodeBlendTree" id=9]
+graph_offset = Vector2( -428, 36.75 )
+nodes/Animation/node = SubResource( 7 )
+nodes/Animation/position = Vector2( -228, 117.75 )
+nodes/TimeScale/node = SubResource( 8 )
+nodes/TimeScale/position = Vector2( 20, 80 )
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
+
+[sub_resource type="AnimationNodeStateMachine" id=4]
+states/Idle/node = SubResource( 6 )
+states/Idle/position = Vector2( 320, 60 )
+states/Running/node = SubResource( 9 )
+states/Running/position = Vector2( 498, 69 )
+start_node = "Running"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=5]
+
+[node name="Ogre" type="KinematicBody2D" groups=[
+"Enemies",
+]]
+script = ExtResource( 1 )
+speed = 60
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+offset = Vector2( 0, -6 )
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 8.0
+anims/Idle = SubResource( 2 )
+anims/Running = SubResource( 3 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 4 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource( 5 )
+parameters/Running/TimeScale/scale = 8.0

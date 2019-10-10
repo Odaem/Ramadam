@@ -1,0 +1,162 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Player/idle_animation.tres" type="Texture" id=2]
+[ext_resource path="res://PixelSnap.gd" type="Script" id=3]
+[ext_resource path="res://Player/running_animation.tres" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6, 2 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Running"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeTimeScale" id=5]
+
+[sub_resource type="AnimationNodeBlendTree" id=6]
+nodes/Animation/node = SubResource( 4 )
+nodes/Animation/position = Vector2( 60, 120 )
+nodes/TimeScale/node = SubResource( 5 )
+nodes/TimeScale/position = Vector2( 220, 100 )
+nodes/output/position = Vector2( 400, 120 )
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "Running"
+
+[sub_resource type="AnimationNodeTimeScale" id=8]
+
+[sub_resource type="AnimationNodeBlendTree" id=9]
+nodes/Animation/node = SubResource( 7 )
+nodes/Animation/position = Vector2( 220, 80 )
+nodes/TimeScale/node = SubResource( 8 )
+nodes/TimeScale/position = Vector2( 417, 101 )
+nodes/output/position = Vector2( 620, 100 )
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+
+[sub_resource type="AnimationNodeStateMachine" id=12]
+states/Idle/node = SubResource( 6 )
+states/Idle/position = Vector2( 311, 78 )
+states/Running/node = SubResource( 9 )
+states/Running/position = Vector2( 522, 78 )
+transitions = [ "Idle", "Running", SubResource( 10 ), "Running", "Idle", SubResource( 11 ) ]
+start_node = "Idle"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=13]
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 88, 56 )
+collision_layer = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 100.0
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+offset = Vector2( 0, -14 )
+hframes = 4
+frame = 1
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 2 )
+anims/Running = SubResource( 3 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 12 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource( 13 )
+parameters/Idle/TimeScale/scale = 8.0
+parameters/Running/TimeScale/scale = 8.0
+
+[node name="CameraPosition" type="Position2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="CameraPosition"]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+smoothing_enabled = true
+
+[node name="Polygon2D" type="Polygon2D" parent="CameraPosition"]
+visible = false
+scale = Vector2( 0.2, 0.2 )
+polygon = PoolVector2Array( -8, 8, 8, 8, 8, -8, -8, -8 )
+
+[node name="Debug" type="Node2D" parent="."]
+visible = false
+
+[node name="move_dir" type="Line2D" parent="Debug"]
+z_index = 1
+points = PoolVector2Array( 0, 0, 0, 0 )
+width = 2.0
+default_color = Color( 0.929412, 0.956863, 0.0392157, 1 )
+texture_mode = -1087272314
+end_cap_mode = 1
