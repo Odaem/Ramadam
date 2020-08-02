@@ -15,10 +15,8 @@ height = 24.0
 extents = Vector2( 9, 3.99998 )
 
 [node name="Sword" type="RigidBody2D"]
-position = Vector2( 104, 63 )
-rotation = -1.5708
 collision_layer = 4
-collision_mask = 9
+collision_mask = 11
 physics_material_override = SubResource( 1 )
 linear_damp = 5.0
 angular_damp = 15.0
@@ -45,6 +43,6 @@ collision_layer = 4
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BladeCollision"]
-position = Vector2( 12, 4.57764e-005 )
+position = Vector2( 12, 4.57764e-05 )
 shape = SubResource( 3 )
 [connection signal="body_entered" from="BladeCollision" to="." method="_on_blade_hit"]

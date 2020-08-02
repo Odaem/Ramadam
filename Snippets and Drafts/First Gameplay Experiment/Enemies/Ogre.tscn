@@ -67,36 +67,37 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3, 0 ]
 }
 
-[sub_resource type="AnimationNodeBlendTree" id=6]
+[sub_resource type="AnimationNodeBlendTree" id=4]
 graph_offset = Vector2( -368, 67 )
 
-[sub_resource type="AnimationNodeAnimation" id=7]
+[sub_resource type="AnimationNodeAnimation" id=5]
 animation = "Running"
 
-[sub_resource type="AnimationNodeTimeScale" id=8]
+[sub_resource type="AnimationNodeTimeScale" id=6]
 
-[sub_resource type="AnimationNodeBlendTree" id=9]
+[sub_resource type="AnimationNodeBlendTree" id=7]
 graph_offset = Vector2( -428, 36.75 )
-nodes/Animation/node = SubResource( 7 )
+nodes/Animation/node = SubResource( 5 )
 nodes/Animation/position = Vector2( -228, 117.75 )
-nodes/TimeScale/node = SubResource( 8 )
+nodes/TimeScale/node = SubResource( 6 )
 nodes/TimeScale/position = Vector2( 20, 80 )
 node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
 
-[sub_resource type="AnimationNodeStateMachine" id=4]
-states/Idle/node = SubResource( 6 )
+[sub_resource type="AnimationNodeStateMachine" id=8]
+states/Idle/node = SubResource( 4 )
 states/Idle/position = Vector2( 320, 60 )
-states/Running/node = SubResource( 9 )
+states/Running/node = SubResource( 7 )
 states/Running/position = Vector2( 498, 69 )
 start_node = "Running"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=5]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
 
 [node name="Ogre" type="KinematicBody2D" groups=[
 "Enemies",
 ]]
+collision_layer = 8
+collision_mask = 7
 script = ExtResource( 1 )
-speed = 60
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
@@ -112,7 +113,7 @@ anims/Idle = SubResource( 2 )
 anims/Running = SubResource( 3 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 4 )
+tree_root = SubResource( 8 )
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource( 5 )
+parameters/playback = SubResource( 9 )
 parameters/Running/TimeScale/scale = 8.0

@@ -4,6 +4,7 @@ extends RigidBody2D
 export var speed: float = 400
 export var rotation_speed: float = 2000
 export var move_point := Vector2(0, 0)
+export var attack: int = 3
 
 enum STATE {IDLE, DASHING}
 var state: int = STATE.IDLE
@@ -42,4 +43,5 @@ func _integrate_forces(phys_state):
 func _on_blade_hit(body: PhysicsBody2D):
 	if body.is_in_group("Enemies"):
 		if body.has_method("get_hit"):
-			body.get_hit()
+			print("hit")
+			body.get_hit(attack, (body.position - position).normalized())

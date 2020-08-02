@@ -26,37 +26,33 @@ tile_data = PoolIntArray( -65536, 3, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0
 [node name="Player" parent="YSort" groups=[
 "Players",
 ] instance=ExtResource( 3 )]
-position = Vector2( 88, 67 )
+position = Vector2( 88, 56 )
 
 [node name="Sword" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 104, 56 )
+rotation = -1.5708
 collision_mask = 1
 
 [node name="Ogre" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( -24, 57 )
-collision_layer = 8
 target = NodePath("../Player")
 
 [node name="Ogre2" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( -40, 100 )
-collision_layer = 8
 target = NodePath("../Player")
 
 [node name="Ogre3" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( -16, 163 )
-collision_layer = 8
 target = NodePath("../Player")
 
 [node name="Ogre4" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 191, 23 )
-collision_layer = 8
 target = NodePath("../Player")
 
 [node name="Ogre5" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 155, 204 )
-collision_layer = 8
 target = NodePath("../Player")
 
 [node name="Ogre6" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( -19, 80 )
-collision_layer = 8
 target = NodePath("../Player")
