@@ -15,9 +15,9 @@ func _process(delta):
 	if move_direction.length_squared() != 0:
 		move_direction = move_direction.normalized()
 	
-	if Input.is_action_pressed("player_jump"):
+	if Input.is_action_just_pressed("player_jump"):
 		do_jump = true
-	else:
+	elif Input.is_action_just_released("player_jump"):
 		do_jump = false
 		
 	._process(delta)
