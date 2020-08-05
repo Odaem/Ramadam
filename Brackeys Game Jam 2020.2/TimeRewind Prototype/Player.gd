@@ -1,5 +1,5 @@
 extends Entity
-class_name Player
+#class_name Player
 
 export(NodePath) var SpawnPosition
 
@@ -21,9 +21,6 @@ func _process(delta):
 		do_jump = false
 		
 	._process(delta)
-		
-#func _physics_process(delta):
-#	._physics_process(delta)
 
 
 func respawn():

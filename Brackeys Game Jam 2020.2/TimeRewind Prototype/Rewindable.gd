@@ -2,35 +2,38 @@ extends Node
 #class_name Rewindable
 
 
+export var active: bool = true setget set_active, is_active
 export var saved_keys = []
 var save_data = [{}]
 var timeline_index = -1
 var max_time = 0
-var active: bool = true # setget set_active, is_active
-#
-#func set_active(value: bool):
-#	if active != value:
-#		active = value
-#		if active:
-#			activate()
-#		else:
-#			deactivate()
-#
-#func is_active():
-#	return active
+export var rewind_speed: int = -1
 
 
-func activate():
+func set_active(value: bool):
+	if active != value:
+		if value:
+			_activate()
+		else:
+			_deactivate()
+		active = value
+
+func is_active():
+	return active
+
+
+func _activate():
+	get_parent().set_active(true)
 	max_time = timeline_index + 1
 	save_data.resize(max_time)
 
-func deactivate():
-	pass
+func _deactivate():
+	get_parent().set_active(false)
+	rewind_speed = -1
 
 
 func _ready():
-	if get_parent().saved_keys:
-		saved_keys = get_parent().saved_keys
+	pass
 
 
 func _process(delta):
@@ -39,15 +42,7 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	if Input.is_action_just_released("ui_down"):
-		active = !active
-		if active:
-			activate()
-		else:
-			deactivate()
-	
 	if active:
-		get_parent().active = true
 		timeline_index += 1
 		max_time += 1
 		if save_data.size() < max_time:
@@ -55,10 +50,10 @@ func _physics_process(delta):
 		for key in saved_keys:
 			save_data[timeline_index][key] = get_parent().get_node(key).get(NodePath(key).get_concatenated_subnames())
 	else:
-		get_parent().active = false
-		if Input.is_action_pressed("ui_left"):
-			timeline_index = max(timeline_index - 1, 0)
-		if Input.is_action_pressed("ui_right"):
-			timeline_index = min(timeline_index + 1, max_time - 1)
+		timeline_index = min(max(timeline_index + sign(rewind_speed) * pow(2.0, abs(rewind_speed) - 1), 0), max_time - 1)
 		for key in saved_keys:
 			get_parent().get_node(key).set(NodePath(key).get_concatenated_subnames(), save_data[timeline_index][key])
+
+
+func effective_speed(speed_level: int):
+	return sign(speed_level) * pow(2.0, abs(speed_level) - 1)

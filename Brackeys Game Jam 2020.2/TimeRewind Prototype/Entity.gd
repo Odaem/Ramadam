@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name Entity
 
+export var active: bool = true setget set_active, is_active
+
 export var gravity = Vector2(0, 800)
 var linear_velocity = Vector2()
 
@@ -30,32 +32,38 @@ var saved_keys = [
 	"Sprite:flip_h"
 ]
 
-export var active: bool = true setget set_active, is_active
+
+signal clicked
+
+
 func set_active(value: bool):
 	if active != value:
 		if value:
-			activate()
+			_activate()
 		else:
-			deactivate()
+			_deactivate()
 		active = value
+
 func is_active():
 	return active
 
 
-func activate():
-	collision_layer = 2
-	collision_mask = 1
+func _activate():
+#	collision_layer = 2
+#	collision_mask = 1
 	$Sprite.playing = true
 
-func deactivate():
-	collision_layer = 0
-	collision_mask = 0
+func _deactivate():
+#	collision_layer = 0
+#	collision_mask = 0
 	$Sprite.playing = false
 
 
 func _ready():
 	jump_strength = sqrt(2.0 * min_jump_height * gravity.length())
-	pass
+	gravity = gravity.normalized() * ProjectSettings.get_setting("physics/2d/default_gravity")
+	if has_node("Rewinder"):
+		$Rewinder.saved_keys = saved_keys
 
 
 func _process(delta):
@@ -83,7 +91,10 @@ func _physics_process(delta):
 		else:
 	#		var floor_tan = get_floor_normal().rotated(PI/2)
 	#		var speed_in_floor_dir = linear_velocity.dot(floor_tan)
-			linear_velocity.x -= linear_velocity.x / max_movement_speed * movement_acceleration * delta
+#			if is_on_floor():
+##				linear_velocity = get_floor_velocity()
+#			else:
+				linear_velocity.x -= linear_velocity.x / max_movement_speed * movement_acceleration * delta
 			
 		
 		if is_on_floor():
@@ -111,4 +122,27 @@ func _physics_process(delta):
 		
 		linear_velocity += gravity * delta
 		
-		linear_velocity = move_and_slide(linear_velocity, Vector2(0,-1))
+		var new_linear_velocity = move_and_slide(linear_velocity, Vector2(0,-1), false, 4, PI/4, false)
+		
+		
+		for i in range(get_slide_count()):
+			pass
+			var coll := get_slide_collision(i)
+			if coll.collider is RigidBody2D:
+				coll.collider.apply_central_impulse(coll.normal * linear_velocity.dot(coll.normal))
+				
+		
+		linear_velocity = new_linear_velocity
+
+
+func _input_event(viewport, event, shape_idx):
+	if event.is_action_pressed("select_object"):
+		emit_signal("clicked", self)
+		
+
+
+func select():
+	$Sprite.modulate = Color(0.5,1.0,0.5)
+
+func deselect():
+	$Sprite.modulate = Color(1.0,1.0,1.0)
