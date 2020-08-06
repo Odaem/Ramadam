@@ -19,7 +19,7 @@ var jump_time: float = 0.0
 export var max_jump_time: float = 0.2
 var air_time: float = 0.0
 
-var saved_keys = [
+var saved_paths = [
 	":position",
 	":linear_velocity",
 	":move_direction",
@@ -31,6 +31,9 @@ var saved_keys = [
 	"Sprite:frame",
 	"Sprite:flip_h"
 ]
+
+var selected = false
+var hovered = false
 
 
 signal clicked
@@ -51,11 +54,13 @@ func is_active():
 func _activate():
 #	collision_layer = 2
 #	collision_mask = 1
+	$Rewinder.start_recording()
 	$Sprite.playing = true
 
 func _deactivate():
 #	collision_layer = 0
 #	collision_mask = 0
+	$Rewinder.start_playing()
 	$Sprite.playing = false
 
 
@@ -63,7 +68,8 @@ func _ready():
 	jump_strength = sqrt(2.0 * min_jump_height * gravity.length())
 	gravity = gravity.normalized() * ProjectSettings.get_setting("physics/2d/default_gravity")
 	if has_node("Rewinder"):
-		$Rewinder.saved_keys = saved_keys
+		$Rewinder.saved_paths = saved_paths
+		$Rewinder.start_recording()
 
 
 func _process(delta):
@@ -89,11 +95,11 @@ func _physics_process(delta):
 			speed_multiplier = min(max((max_movement_speed - speed_in_move_dir), 0), max_movement_speed) / max_movement_speed
 			linear_velocity += move_direction * speed_multiplier * movement_acceleration * delta
 		else:
-	#		var floor_tan = get_floor_normal().rotated(PI/2)
-	#		var speed_in_floor_dir = linear_velocity.dot(floor_tan)
-#			if is_on_floor():
-##				linear_velocity = get_floor_velocity()
-#			else:
+			var floor_tan = get_floor_normal().rotated(PI/2)
+			var speed_in_floor_dir = linear_velocity.dot(floor_tan)
+			if is_on_floor():
+				linear_velocity = get_floor_velocity()
+			else:
 				linear_velocity.x -= linear_velocity.x / max_movement_speed * movement_acceleration * delta
 			
 		
@@ -141,8 +147,24 @@ func _input_event(viewport, event, shape_idx):
 		
 
 
+func set_outline(width: float, color: Color = Color()):
+	$Sprite.material.set_shader_param("outline_width", width)
+	$Sprite.material.set_shader_param("outline_color", color)
+
 func select():
-	$Sprite.modulate = Color(0.5,1.0,0.5)
+	selected = true
+	set_outline(1, Color(0,1,0))
 
 func deselect():
-	$Sprite.modulate = Color(1.0,1.0,1.0)
+	selected = false
+	set_outline(0)
+
+func hover():
+	hovered = true
+	if not selected:
+		set_outline(1, Color(1,1,1))
+
+func dehover():
+	hovered = false
+	if not selected:
+		set_outline(0)

@@ -28,3 +28,4 @@ func respawn():
 	if spawn_node:
 		position = spawn_node.position
 		linear_velocity = Vector2()
+
