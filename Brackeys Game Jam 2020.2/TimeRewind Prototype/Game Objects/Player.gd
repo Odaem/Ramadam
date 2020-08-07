@@ -27,6 +27,7 @@ func _active_integrate_forces(state):
 	var acc = applied_force / mass + state.total_gravity
 	linear_velocity += acc * state.step
 	state.transform.origin += linear_velocity * state.step
+	applied_force = Vector2()
 	pass
 
 
@@ -41,7 +42,8 @@ func deactivate():
 
 
 func _on_body_shape_entered(body_id, body, body_shape, local_shape):
-	pass # Replace with function body.
+	pass
+	get_shape_owners()
 	
 
 func _on_body_shape_exited(body_id, body, body_shape, local_shape):

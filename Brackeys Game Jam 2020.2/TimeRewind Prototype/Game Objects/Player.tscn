@@ -1,108 +1,108 @@
 [gd_scene load_steps=34 format=2]
 
-[ext_resource path="res://new attempt/Player.gd" type="Script" id=1]
-[ext_resource path="res://outline.shader" type="Shader" id=2]
-[ext_resource path="res://new attempt/Rewinder.gd" type="Script" id=3]
-[ext_resource path="res://Assets/temp/Virtual Guy/Jump (32x32).png" type="Texture" id=4]
-[ext_resource path="res://Assets/temp/Virtual Guy/Fall (32x32).png" type="Texture" id=5]
-[ext_resource path="res://Assets/temp/Virtual Guy/Idle (32x32).png" type="Texture" id=6]
-[ext_resource path="res://Assets/temp/Virtual Guy/Run (32x32).png" type="Texture" id=7]
+[ext_resource path="res://Game Objects/Rewinder.gd" type="Script" id=1]
+[ext_resource path="res://Game Objects/Player.gd" type="Script" id=2]
+[ext_resource path="res://Textures/Idle (32x32).png" type="Texture" id=3]
+[ext_resource path="res://Textures/Jump (32x32).png" type="Texture" id=4]
+[ext_resource path="res://Textures/Run (32x32).png" type="Texture" id=5]
+[ext_resource path="res://Textures/Fall (32x32).png" type="Texture" id=6]
+[ext_resource path="res://outline.shader" type="Shader" id=7]
 
 [sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 2 )
+shader = ExtResource( 7 )
 shader_param/outline_width = 2.0
 shader_param/outline_color = null
 
 [sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 6 )
+atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 6 )
+atlas = ExtResource( 3 )
 region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 6 )
+atlas = ExtResource( 3 )
 region = Rect2( 64, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 6 )
+atlas = ExtResource( 3 )
 region = Rect2( 96, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 6 )
+atlas = ExtResource( 3 )
 region = Rect2( 128, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 6 )
+atlas = ExtResource( 3 )
 region = Rect2( 160, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 6 )
+atlas = ExtResource( 3 )
 region = Rect2( 192, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 6 )
+atlas = ExtResource( 3 )
 region = Rect2( 224, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 6 )
+atlas = ExtResource( 3 )
 region = Rect2( 256, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 6 )
+atlas = ExtResource( 3 )
 region = Rect2( 288, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 6 )
+atlas = ExtResource( 3 )
 region = Rect2( 320, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 64, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 96, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 128, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 160, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 192, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 224, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 256, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 288, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 320, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 352, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=25]
@@ -117,7 +117,7 @@ animations = [ {
 "name": "jumping",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": false,
 "name": "falling",
 "speed": 1.0
@@ -139,14 +139,14 @@ custom_integrator = true
 continuous_cd = 2
 contacts_reported = 6
 contact_monitor = true
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 material = SubResource( 1 )
 position = Vector2( 0, -16 )
 frames = SubResource( 25 )
 animation = "idle"
-frame = 7
+frame = 9
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -154,4 +154,6 @@ position = Vector2( 0, -12 )
 shape = SubResource( 26 )
 
 [node name="Rewinder" type="Node" parent="."]
-script = ExtResource( 3 )
+script = ExtResource( 1 )
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]
