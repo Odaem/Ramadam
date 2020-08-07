@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://new attempt/ObjectPicker.gd" type="Script" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Area2D
@@ -29,10 +28,6 @@ script = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Selector"]
 shape = SubResource( 2 )
-
-[node name="Sprite" type="Sprite" parent="Selector"]
-visible = false
-texture = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="."]
 margin_right = 40.0

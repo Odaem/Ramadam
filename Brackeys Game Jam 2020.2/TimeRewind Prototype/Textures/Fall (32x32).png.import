@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Jump (32x32).png-917313e01b3f97d624e6b8310f628e73.stex"
+path="res://.import/Fall (32x32).png-11e50a32166b6a06bf3b9d00a244b585.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Jump (32x32).png"
-dest_files=[ "res://.import/Jump (32x32).png-917313e01b3f97d624e6b8310f628e73.stex" ]
+source_file="res://Textures/Fall (32x32).png"
+dest_files=[ "res://.import/Fall (32x32).png-11e50a32166b6a06bf3b9d00a244b585.stex" ]
 
 [params]
 
