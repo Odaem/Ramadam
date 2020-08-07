@@ -30,6 +30,10 @@ config/name="Time Rewind Prototype"
 run/main_scene="res://test-level.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=2084
+
 [input]
 
 player_move_left={
