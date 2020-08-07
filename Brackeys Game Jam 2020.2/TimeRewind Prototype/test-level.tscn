@@ -525,5 +525,4 @@ texture = ExtResource( 9 )
 
 [node name="Rewinder" type="Node" parent="RigidBody2D2"]
 script = ExtResource( 7 )
-[connection signal="body_shape_entered" from="Player" to="Player" method="_on_body_shape_entered"]
 [connection signal="body_exited" from="PlayArea" to="PlayArea" method="_on_body_exited"]
