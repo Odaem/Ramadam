@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Entity",
 "language": "GDScript",
-"path": "res://Entity.gd"
+"path": "res://old attempt/Entity.gd"
 }, {
 "base": "Entity",
 "class": "Player",
@@ -22,17 +22,17 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "RewindableKinematicBody2D",
 "language": "GDScript",
-"path": "res://new attempt/RewindableKinematicBody2D.gd"
+"path": "res://Game Objects/RewindableKinematicBody2D.gd"
 }, {
 "base": "RigidBody2D",
 "class": "RewindableRigidBody2D",
 "language": "GDScript",
-"path": "res://new attempt/RewindableRigidBody2D.gd"
+"path": "res://Game Objects/RewindableRigidBody2D.gd"
 }, {
 "base": "Node",
 "class": "Rewinder",
 "language": "GDScript",
-"path": "res://new attempt/Rewinder.gd"
+"path": "res://Game Objects/Rewinder.gd"
 } ]
 _global_script_class_icons={
 "Entity": "",
