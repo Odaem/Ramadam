@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player.gd"
+}, {
+"base": "Node",
+"class": "Rewinder",
+"language": "GDScript",
+"path": "res://new attempt/Rewinder.gd"
 } ]
 _global_script_class_icons={
 "Entity": "",
-"Player": ""
+"Player": "",
+"Rewinder": ""
 }
 
 [application]

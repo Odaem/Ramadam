@@ -1,5 +1,5 @@
 extends Entity
-class_name Player
+#class_name Player
 
 export(NodePath) var SpawnPosition
 
@@ -15,15 +15,12 @@ func _process(delta):
 	if move_direction.length_squared() != 0:
 		move_direction = move_direction.normalized()
 	
-	if Input.is_action_pressed("player_jump"):
+	if Input.is_action_just_pressed("player_jump"):
 		do_jump = true
-	else:
+	elif Input.is_action_just_released("player_jump"):
 		do_jump = false
 		
 	._process(delta)
-		
-#func _physics_process(delta):
-#	._physics_process(delta)
 
 
 func respawn():
@@ -31,3 +28,4 @@ func respawn():
 	if spawn_node:
 		position = spawn_node.position
 		linear_velocity = Vector2()
+

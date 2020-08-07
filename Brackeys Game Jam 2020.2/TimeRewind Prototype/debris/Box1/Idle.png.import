@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/light-01.png-6adcd61fcc188564a45b3b9e3d3c930b.stex"
+path="res://.import/Idle.png-694cdfef78dd781d9325f5c7ce121ae8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Lights/light-01.png"
-dest_files=[ "res://.import/light-01.png-6adcd61fcc188564a45b3b9e3d3c930b.stex" ]
+source_file="res://debris/Box1/Idle.png"
+dest_files=[ "res://.import/Idle.png-694cdfef78dd781d9325f5c7ce121ae8.stex" ]
 
 [params]
 
