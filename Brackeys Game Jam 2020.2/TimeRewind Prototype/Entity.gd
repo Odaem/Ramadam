@@ -2,6 +2,7 @@ extends KinematicBody2D
 class_name Entity
 
 export var active: bool = true setget set_active, is_active
+var update = false
 
 export var gravity = Vector2(0, 800)
 var linear_velocity = Vector2()
@@ -36,9 +37,6 @@ var selected = false
 var hovered = false
 
 
-signal clicked
-
-
 func set_active(value: bool):
 	if active != value:
 		if value:
@@ -54,6 +52,7 @@ func is_active():
 func _activate():
 #	collision_layer = 2
 #	collision_mask = 1
+	update = true
 	$Rewinder.start_recording()
 	$Sprite.playing = true
 
@@ -67,9 +66,9 @@ func _deactivate():
 func _ready():
 	jump_strength = sqrt(2.0 * min_jump_height * gravity.length())
 	gravity = gravity.normalized() * ProjectSettings.get_setting("physics/2d/default_gravity")
-	if has_node("Rewinder"):
-		$Rewinder.saved_paths = saved_paths
-		$Rewinder.start_recording()
+	assert(has_node("Rewinder") and $Rewinder is Rewinder)
+	$Rewinder.saved_paths = saved_paths
+	$Rewinder.start_recording()
 
 
 func _process(delta):
@@ -89,6 +88,9 @@ func _process(delta):
 
 func _physics_process(delta):
 	if active:
+		if update:
+			$Rewinder.play_frame()
+			update = false
 		var speed_multiplier
 		var speed_in_move_dir = linear_velocity.dot(move_direction.normalized())
 		if move_direction.length_squared() != 0:
@@ -139,6 +141,11 @@ func _physics_process(delta):
 				
 		
 		linear_velocity = new_linear_velocity
+		
+		$Rewinder.record_frame()
+	else:
+		$Rewinder.step_time()
+		$Rewinder.play_frame()
 
 
 func _input_event(viewport, event, shape_idx):

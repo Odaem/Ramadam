@@ -14,16 +14,18 @@ export var recording = false
 export var playing = false
 
 func _ready():
+#	process_priority = get_parent().process_priority - 1
 	pass
 
 
 func _physics_process(delta):
-	if recording:
-		record_frame()
-		time = time_data.size()
-	elif playing:
-		time = min(max(time + playback_speed, 0), max(time_data.size() - 1, 0))
-		play_frame()
+#	if recording:
+#		record_frame()
+#		time = time_data.size()
+#	elif playing:
+#		step_time()
+#		play_frame()
+	pass
 
 
 func start_recording():
@@ -42,6 +44,7 @@ func disable():
 	recording = false
 	playing = false
 
+
 #var rec_count = 0
 func record_frame(at_time: int = time_data.size()):
 	var frame = {}
@@ -51,6 +54,8 @@ func record_frame(at_time: int = time_data.size()):
 #	if rec_count % 120 == 0:
 #		print(at_time, "\n", frame)
 	set_frame(frame, at_time)
+	time = at_time
+
 
 #var play_count = 0
 func play_frame(at_time: int = time):
@@ -101,6 +106,10 @@ func get_playback_speed():
 
 func set_playback_speed(value: int):
 	playback_speed = value
+
+
+func step_time():
+	time = min(max(time + playback_speed, 0), max(time_data.size() - 1, 0))
 
 
 func calc_playback_speed_from_level(level: int):

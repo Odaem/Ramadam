@@ -1,12 +1,11 @@
 extends RigidBody2D
+class_name RewindableRigidBody2D
 
-
-var prev_transform
 onready var v_transform = transform
 onready var v_linear_velocity = linear_velocity
 onready var v_angular_velocity = angular_velocity
 
-var saved_paths = [
+const saved_paths = [
 	":v_transform",
 	":v_linear_velocity",
 	":v_angular_velocity"
@@ -38,7 +37,10 @@ func _process(delta):
 
 func _physics_process(delta):
 	if not active:
+		$Rewinder.step_time()
+		$Rewinder.play_frame()
 		transform = v_transform
+
 
 func _integrate_forces(state):
 	if active:
@@ -47,16 +49,21 @@ func _integrate_forces(state):
 			state.linear_velocity = v_linear_velocity
 			state.angular_velocity = v_angular_velocity
 			update = false
-		state.integrate_forces()
+		_active_integrate_forces(state)
 		v_transform = state.transform
 		v_linear_velocity = state.linear_velocity
 		v_angular_velocity = state.angular_velocity
+		$Rewinder.record_frame()
 	else:
 		var d_pos = v_transform.origin - state.transform.origin
 		var d_rot = v_transform.get_rotation() - state.transform.get_rotation()
 		state.linear_velocity = d_pos / state.step
 		state.angular_velocity = d_rot / state.step
 		state.transform = v_transform
+
+
+func _active_integrate_forces(state: Physics2DDirectBodyState):
+	state.integrate_forces()
 
 
 func set_active(value: bool):
