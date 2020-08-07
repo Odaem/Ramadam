@@ -14,11 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://old attempt/Entity.gd"
 }, {
-"base": "Entity",
-"class": "Player",
-"language": "GDScript",
-"path": "res://Player.gd"
-}, {
 "base": "KinematicBody2D",
 "class": "RewindableKinematicBody2D",
 "language": "GDScript",
@@ -36,7 +31,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Entity": "",
-"Player": "",
 "RewindableKinematicBody2D": "",
 "RewindableRigidBody2D": "",
 "Rewinder": ""
