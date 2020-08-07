@@ -103,8 +103,8 @@ func _physics_process(delta):
 				linear_velocity = get_floor_velocity()
 			else:
 				linear_velocity.x -= linear_velocity.x / max_movement_speed * movement_acceleration * delta
-			
-		
+
+
 		if is_on_floor():
 			may_jump = true
 			air_time = 0.0
@@ -112,10 +112,10 @@ func _physics_process(delta):
 			air_time += delta
 			if air_time > jump_margin:
 				may_jump = false
-		
+
 		if is_on_ceiling():
 			jump_time = 0.0
-		
+
 		if do_jump and may_jump:
 			linear_velocity += Vector2(0, -1) * jump_strength - gravity * delta
 			may_jump = false
@@ -127,19 +127,19 @@ func _physics_process(delta):
 		else:
 			jump_time = 0.0
 			do_jump = false
-		
+
 		linear_velocity += gravity * delta
-		
+
 		var new_linear_velocity = move_and_slide(linear_velocity, Vector2(0,-1), false, 4, PI/4, false)
-		
-		
+
+
 		for i in range(get_slide_count()):
 			pass
 			var coll := get_slide_collision(i)
 			if coll.collider is RigidBody2D:
 				coll.collider.apply_central_impulse(coll.normal * linear_velocity.dot(coll.normal))
-				
-		
+
+
 		linear_velocity = new_linear_velocity
 		
 		$Rewinder.record_frame()
@@ -151,7 +151,7 @@ func _physics_process(delta):
 func _input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("select_object"):
 		emit_signal("clicked", self)
-		
+
 
 
 func set_outline(width: float, color: Color = Color()):
