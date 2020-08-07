@@ -17,6 +17,7 @@ export var outline_width: float = 1
 onready var active_mode: int = mode
 
 export var active = true setget set_active
+var update = false
 var selected = false
 var hovered = false
 
@@ -41,6 +42,11 @@ func _physics_process(delta):
 
 func _integrate_forces(state):
 	if active:
+		if update:
+			state.transform = v_transform
+			state.linear_velocity = v_linear_velocity
+			state.angular_velocity = v_angular_velocity
+			update = false
 		state.integrate_forces()
 		v_transform = state.transform
 		v_linear_velocity = state.linear_velocity
@@ -64,6 +70,7 @@ func set_active(value: bool):
 
 func activate():
 	active = true
+	update = true
 	mode = active_mode
 	$Rewinder.start_recording()
 

@@ -55,9 +55,12 @@ func _process(delta):
 		else:
 			$SpeedDisplayPos.hide()
 		
-		$CenterContainer/ProgressBar.show()
-		$CenterContainer/ProgressBar.max_value = rew.time_data.size()
-		$CenterContainer/ProgressBar.value = rew.time
+		if not selected.active:
+			$CenterContainer/ProgressBar.show()
+			$CenterContainer/ProgressBar.max_value = rew.time_data.size()
+			$CenterContainer/ProgressBar.value = rew.time
+		else:
+			$CenterContainer/ProgressBar.hide()
 	else:
 		$SpeedDisplayPos.hide()
 		$CenterContainer/ProgressBar.hide()
