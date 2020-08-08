@@ -9,160 +9,159 @@
 [ext_resource path="res://outline.shader" type="Shader" id=7]
 [ext_resource path="res://Game Objects/ObjectPicker.tscn" type="PackedScene" id=8]
 
-[sub_resource type="ShaderMaterial" id=27]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 7 )
 shader_param/outline_width = 2.0
 shader_param/outline_color = null
 
 [sub_resource type="PhysicsMaterial" id=28]
 
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 32, 32 )
-
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 3 )
-region = Rect2( 32, 0, 32, 32 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 3 )
-region = Rect2( 64, 0, 32, 32 )
+region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 3 )
-region = Rect2( 96, 0, 32, 32 )
+region = Rect2( 64, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 3 )
-region = Rect2( 128, 0, 32, 32 )
+region = Rect2( 96, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 3 )
-region = Rect2( 160, 0, 32, 32 )
+region = Rect2( 128, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 3 )
-region = Rect2( 192, 0, 32, 32 )
+region = Rect2( 160, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 3 )
-region = Rect2( 224, 0, 32, 32 )
+region = Rect2( 192, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 3 )
-region = Rect2( 256, 0, 32, 32 )
+region = Rect2( 224, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 3 )
-region = Rect2( 288, 0, 32, 32 )
+region = Rect2( 256, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 3 )
-region = Rect2( 320, 0, 32, 32 )
+region = Rect2( 288, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 32, 32 )
+atlas = ExtResource( 3 )
+region = Rect2( 320, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 5 )
-region = Rect2( 32, 0, 32, 32 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 5 )
-region = Rect2( 64, 0, 32, 32 )
+region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 5 )
-region = Rect2( 96, 0, 32, 32 )
+region = Rect2( 64, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 5 )
-region = Rect2( 128, 0, 32, 32 )
+region = Rect2( 96, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 5 )
-region = Rect2( 160, 0, 32, 32 )
+region = Rect2( 128, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 5 )
-region = Rect2( 192, 0, 32, 32 )
+region = Rect2( 160, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 5 )
-region = Rect2( 224, 0, 32, 32 )
+region = Rect2( 192, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 5 )
-region = Rect2( 256, 0, 32, 32 )
+region = Rect2( 224, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 5 )
-region = Rect2( 288, 0, 32, 32 )
+region = Rect2( 256, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 5 )
-region = Rect2( 320, 0, 32, 32 )
+region = Rect2( 288, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 5 )
+region = Rect2( 320, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 5 )
 region = Rect2( 352, 0, 32, 32 )
 
-[sub_resource type="SpriteFrames" id=25]
+[sub_resource type="SpriteFrames" id=26]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
 "loop": true,
 "name": "idle",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": false,
-"name": "jumping",
-"speed": 1.0
-}, {
-"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
-"loop": true,
-"name": "running",
 "speed": 12.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": false,
 "name": "falling",
 "speed": 1.0
+}, {
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
+"loop": true,
+"name": "running",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": false,
+"name": "jumping",
+"speed": 1.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=29]
+[sub_resource type="CapsuleShape2D" id=27]
 radius = 8.0
 height = 9.0
 
 [node name="Player" type="RigidBody2D"]
 process_priority = -1
-material = SubResource( 27 )
+material = SubResource( 1 )
 collision_layer = 10
-collision_mask = 5
+collision_mask = 21
 mode = 2
 physics_material_override = SubResource( 28 )
 custom_integrator = true
 contacts_reported = 6
 contact_monitor = true
 script = ExtResource( 2 )
-rewinder_path = NodePath("Rewinder")
 move_force_strength = 500
 max_move_velocity = 150
-jump_initial_impulse_strength = 200
+jump_initial_impulse_strength = 300
 jump_continued_force_strength = 800
 jump_margin = 0.15
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 use_parent_material = true
-frames = SubResource( 25 )
+frames = SubResource( 26 )
 animation = "idle"
-frame = 9
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 4 )
-shape = SubResource( 29 )
+shape = SubResource( 27 )
 
 [node name="Rewinder" type="Node" parent="."]
 script = ExtResource( 1 )
@@ -173,18 +172,10 @@ default_selected = NodePath("..")
 [node name="CollisionShape2D" parent="ObjectPicker/Selector" index="0"]
 visible = false
 
-[node name="Container" type="Node" parent="."]
-
-[node name="Label" type="Label" parent="Container"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_bottom = 14.0
-grow_horizontal = 0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
 [editable path="ObjectPicker"]

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Game Objects/ObjectPicker.gd" type="Script" id=1]
 
-[sub_resource type="GDScript" id=1]
+[sub_resource type="GDScript" id=28]
 script/source = "extends Area2D
 
 
@@ -14,7 +14,7 @@ func _process(_delta):
 	global_position = get_global_mouse_position()
 "
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=29]
 radius = 32.0
 
 [node name="ObjectPicker" type="Node"]
@@ -24,17 +24,10 @@ script = ExtResource( 1 )
 monitorable = false
 collision_layer = 2147483648
 collision_mask = 8
-script = SubResource( 1 )
+script = SubResource( 28 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Selector"]
-shape = SubResource( 2 )
-
-[node name="Label" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+shape = SubResource( 29 )
 
 [node name="SpeedDisplayPos" type="Position2D" parent="."]
 
@@ -50,7 +43,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="VBoxContainer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -62,7 +65,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBar" type="ProgressBar" parent="CenterContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/CenterContainer"]
 margin_top = 570.0
 margin_right = 1024.0
 margin_bottom = 600.0

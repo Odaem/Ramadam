@@ -37,11 +37,11 @@ func _ready():
 
 
 func _process(delta):
-	$Container/Label.text = ""
-	$Container/Label.text += "on_floor = " + str(on_floor) + "\n"
-	$Container/Label.text += "jump_input = " + str(jump_input) + "\n"
-	$Container/Label.text += "applied_force = " + str(applied_force) + "\n"
-	$Container/Label.text += "linear_velocity = " + str(linear_velocity) + "\n"
+#	$Container/Label.text = ""
+#	$Container/Label.text += "on_floor = " + str(on_floor) + "\n"
+#	$Container/Label.text += "jump_input = " + str(jump_input) + "\n"
+#	$Container/Label.text += "applied_force = " + str(applied_force) + "\n"
+#	$Container/Label.text += "linear_velocity = " + str(linear_velocity) + "\n"
 	
 	$Sprite.speed_scale = rew.get_playback_speed()
 	
@@ -158,3 +158,7 @@ func activate():
 func deactivate():
 	.deactivate()
 	$Sprite.playing = false
+
+
+func hit():
+	get_node("/root").get_child(0).reload_level()
