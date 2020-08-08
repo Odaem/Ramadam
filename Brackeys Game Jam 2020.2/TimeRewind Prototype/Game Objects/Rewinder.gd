@@ -1,8 +1,9 @@
 extends Node
-class_name Rewinder
+#class_name Rewinder
 
 
 var time_data = []
+
 
 export var saved_paths = []
 # this variable should be set by parent or in editor
@@ -26,6 +27,7 @@ func _physics_process(delta):
 #		step_time()
 #		play_frame()
 	pass
+	
 
 
 func start_recording():
@@ -83,7 +85,7 @@ func set_frame(frame: Dictionary, at_time: int = time):
 	else:
 		time_data[at_time] = var2bytes(frame, true)
 #		time_data[at_time] = frame
-
+	
 
 #func insert_frame(frame: Dictionary, at_time: int = time):
 #	at_time = min(max(at_time, 0), time_data.size())

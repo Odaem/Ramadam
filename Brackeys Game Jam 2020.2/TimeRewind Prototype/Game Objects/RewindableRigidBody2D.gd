@@ -1,6 +1,9 @@
 extends RigidBody2D
 class_name RewindableRigidBody2D
 
+export(NodePath) var rewinder_path
+onready var rew: Rewinder = get_node(rewinder_path) as Rewinder
+
 onready var v_transform = transform
 onready var v_linear_velocity = linear_velocity
 onready var v_angular_velocity = angular_velocity
@@ -8,7 +11,9 @@ onready var v_angular_velocity = angular_velocity
 const saved_paths = [
 	":v_transform",
 	":v_linear_velocity",
-	":v_angular_velocity"
+	":v_angular_velocity",
+	":applied_force",
+	":applied_torque"
 ]
 
 export var outline_width: float = 1
@@ -22,13 +27,11 @@ var hovered = false
 
 
 func _ready():
-	assert(has_node("Rewinder") and $Rewinder is Rewinder)
-	$Rewinder.saved_paths = saved_paths
+	assert(rew and rew is Rewinder)
+	rew.saved_paths += saved_paths
 	
 	custom_integrator = true
 	can_sleep = false
-	
-	$Rewinder.start_recording()
 
 
 func _process(delta):
@@ -36,34 +39,39 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	if not active:
-		$Rewinder.step_time()
-		$Rewinder.play_frame()
-		transform = v_transform
+	pass
 
 
 func _integrate_forces(state):
 	if active:
 		if update:
-			state.transform = v_transform
-			state.linear_velocity = v_linear_velocity
-			state.angular_velocity = v_angular_velocity
+			_update_integrate_forces(state)
 			update = false
 		_active_integrate_forces(state)
 		v_transform = state.transform
 		v_linear_velocity = state.linear_velocity
 		v_angular_velocity = state.angular_velocity
-		$Rewinder.record_frame()
+		rew.record_frame()
 	else:
+		rew.play_next_frame()
 		var d_pos = v_transform.origin - state.transform.origin
 		var d_rot = v_transform.get_rotation() - state.transform.get_rotation()
 		state.linear_velocity = d_pos / state.step
 		state.angular_velocity = d_rot / state.step
 		state.transform = v_transform
+		transform = v_transform
 
 
 func _active_integrate_forces(state: Physics2DDirectBodyState):
 	state.integrate_forces()
+
+
+func _update_integrate_forces(state: Physics2DDirectBodyState):
+	state.transform = v_transform
+	state.linear_velocity = v_linear_velocity
+	state.angular_velocity = v_angular_velocity
+#	state.add_central_force(applied_force)
+#	state.add_torque(applied_torque)
 
 
 func set_active(value: bool):
@@ -79,17 +87,16 @@ func activate():
 	active = true
 	update = true
 	mode = active_mode
-	$Rewinder.start_recording()
 
 
 func deactivate():
 	active = false
 	mode = RigidBody2D.MODE_KINEMATIC
-	$Rewinder.start_playing()
+
 
 func set_outline(width: float, color: Color = Color()):
-	$Sprite.material.set_shader_param("outline_width", width)
-	$Sprite.material.set_shader_param("outline_color", color)
+	material.set_shader_param("outline_width", width)
+	material.set_shader_param("outline_color", color)
 
 func select():
 	selected = true

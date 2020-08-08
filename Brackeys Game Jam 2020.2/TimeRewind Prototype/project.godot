@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Rewinder",
 "language": "GDScript",
-"path": "res://Game Objects/Rewinder.gd"
+"path": "res://Game Objects/Rewinder2.gd"
 } ]
 _global_script_class_icons={
 "Entity": "",
@@ -39,7 +39,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Time Rewind Prototype"
-config/icon="res://icon.png"
+run/main_scene="res://new_scenes/ObstacleTwo_newPlayerTest.tscn"
+config/icon="res://Textures/Jump (32x32).png"
 
 [display]
 
@@ -90,7 +91,7 @@ forward={
 2d_physics/layer_1="Floor"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Objects"
-2d_physics/layer_4="Rewindables"
+2d_physics/layer_4="Selectables"
 
 [physics]
 
