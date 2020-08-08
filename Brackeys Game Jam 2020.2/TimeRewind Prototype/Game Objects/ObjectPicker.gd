@@ -3,7 +3,6 @@ extends Node
 var hover_objects = []
 var hover: CollisionObject2D
 var selected: CollisionObject2D
-var selected_rew: Rewinder
 export(NodePath) var default_selected
 
 var playback_level = 0
@@ -12,7 +11,13 @@ var max_playback_level = 6
 
 func _ready():
 	default_selected = get_node(default_selected)
+	if default_selected:
+		default_selected.connect("ready", self, "on_default_ready")
+
+
+func on_default_ready():
 	select(default_selected)
+	
 
 
 func _process(delta):
@@ -42,23 +47,20 @@ func _process(delta):
 	$Label.text = "hover: " + str(hover) + "\nselected: " + str(selected)
 	
 	if selected:
-		var rew = selected.get_node("Rewinder")
-		
 		if not selected.active:
-			if rew.time == 0 and playback_level < 0 or rew.time == rew.time_data.size() - 1 and playback_level > 0:
-				set_playback_level(rew, 0)
+			playback_level = selected.rew.playback_speed2level(selected.rew.get_playback_speed())
 		
-		if not selected.active and rew.playback_speed != 0:
+		if not selected.active and selected.rew.playback_speed != 0:
 			$SpeedDisplayPos.show()
 			$SpeedDisplayPos.position = selected.position
-			$SpeedDisplayPos/Label.text = "x" + str(rew.playback_speed)
+			$SpeedDisplayPos/Label.text = "x" + str(selected.rew.playback_speed)
 		else:
 			$SpeedDisplayPos.hide()
 		
 		if not selected.active:
 			$CenterContainer/ProgressBar.show()
-			$CenterContainer/ProgressBar.max_value = rew.time_data.size()
-			$CenterContainer/ProgressBar.value = rew.time
+			$CenterContainer/ProgressBar.max_value = selected.rew.max_time
+			$CenterContainer/ProgressBar.value = selected.rew.time_cursor
 		else:
 			$CenterContainer/ProgressBar.hide()
 	else:
@@ -111,8 +113,7 @@ func select(obj = hover):
 		selected = obj
 		if selected:
 			_select(selected)
-			selected_rew = selected.get_node("Rewinder")
-			playback_level = selected_rew.calc_level_from_playback_speed(selected_rew.playback_speed)
+			playback_level = selected.rew.playback_speed2level(selected.rew.playback_speed)
 
 func deselect():
 	if selected != default_selected:

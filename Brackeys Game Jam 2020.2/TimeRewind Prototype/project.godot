@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Rewinder",
 "language": "GDScript",
-"path": "res://Game Objects/Rewinder.gd"
+"path": "res://Game Objects/Rewinder2.gd"
 } ]
 _global_script_class_icons={
 "Entity": "",
@@ -92,7 +92,7 @@ forward={
 2d_physics/layer_1="Floor"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Objects"
-2d_physics/layer_4="Rewindables"
+2d_physics/layer_4="Selectables"
 
 [physics]
 

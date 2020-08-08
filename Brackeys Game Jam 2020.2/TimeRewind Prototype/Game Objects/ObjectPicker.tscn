@@ -40,8 +40,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="SpeedDisplayPos"]
 margin_left = -18.584
+margin_top = -57.0667
 margin_right = 21.416
-margin_bottom = 14.0
+margin_bottom = -43.0667
 size_flags_horizontal = 4
 text = "x1"
 align = 1
@@ -50,8 +51,10 @@ __meta__ = {
 }
 
 [node name="CenterContainer" type="VBoxContainer" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 2
