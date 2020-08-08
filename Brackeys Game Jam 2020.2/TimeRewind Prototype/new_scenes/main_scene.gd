@@ -24,13 +24,13 @@ func next_level():
 	if current_level < scene_paths.size():
 		load_level(scene_paths[current_level])
 	else:
-		get_tree().quit()
+		win()
 
 
 func load_level(level_path: String):
 	level = load(level_path).instance()
-	add_child(level)
-	level = get_child(get_child_count() - 1)
+	$Level.add_child(level)
+#	level = get_child(get_child_count() - 1)
 
 
 func reload_level():
@@ -39,4 +39,5 @@ func reload_level():
 
 
 func win():
-	pass
+	level.queue_free()
+	$CenterContainer.show()

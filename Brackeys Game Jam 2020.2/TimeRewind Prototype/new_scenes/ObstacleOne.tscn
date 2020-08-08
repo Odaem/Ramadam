@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Tilemaps/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game Objects/Player.tscn" type="PackedScene" id=2]
@@ -13,8 +13,9 @@
 [ext_resource path="res://Textures/bolder.png" type="Texture" id=11]
 [ext_resource path="res://Game Objects/Rewinder2.gd" type="Script" id=12]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Game Objects/RewindableRigidBody2D.gd" type="Script" id=14]
 
-[sub_resource type="ShaderMaterial" id=1]
+[sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 10 )
 shader_param/outline_width = 2.0
 shader_param/outline_color = null
@@ -62,14 +63,18 @@ tile_data = PoolIntArray( 393229, -1073741743, 0, 393230, -1073741743, 0, 393238
 position = Vector2( 120.445, 339.515 )
 
 [node name="Bolder" type="RigidBody2D" parent="."]
+material = SubResource( 4 )
 position = Vector2( 237.972, 138.732 )
+collision_layer = 12
+collision_mask = 7
 mass = 50.0
+script = ExtResource( 14 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="Bolder"]
-material = SubResource( 1 )
+use_parent_material = true
 scale = Vector2( 6, 6 )
 texture = ExtResource( 11 )
 
@@ -79,3 +84,13 @@ script = ExtResource( 12 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bolder"]
 position = Vector2( -0.663452, 4.33371 )
 shape = SubResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 109.317
+margin_top = 262.36
+margin_right = 203.317
+margin_bottom = 276.36
+text = "Sisyphean task"
+__meta__ = {
+"_edit_use_anchors_": false
+}
