@@ -73,7 +73,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Movingspike/spike"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 9 )
-frame = 6
+frame = 5
 playing = true
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Movingspike/spike"]
@@ -98,7 +98,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Movingspike2/spike"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 9 )
-frame = 6
+frame = 5
 playing = true
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Movingspike2/spike"]
@@ -127,7 +127,7 @@ shape = SubResource( 10 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Movingspike3/spike"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 9 )
-frame = 5
+frame = 4
 playing = true
 
 [node name="MoveTween" type="Tween" parent="Movingspike3"]
@@ -153,7 +153,7 @@ shape = SubResource( 10 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Movingspike4/spike"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 9 )
-frame = 5
+frame = 4
 playing = true
 
 [node name="MoveTween" type="Tween" parent="Movingspike4"]
@@ -178,7 +178,7 @@ shape = SubResource( 10 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Movingspike5/spike"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 9 )
-frame = 5
+frame = 4
 playing = true
 
 [node name="MoveTween" type="Tween" parent="Movingspike5"]
@@ -193,6 +193,5 @@ tile_data = PoolIntArray( 393218, -1610612693, 0, 393219, -1610612693, 0, 393220
 position = Vector2( 196.778, 272.173 )
 
 [node name="respawnTimer" type="Timer" parent="."]
-wait_time = 5.0
 autostart = true
 [connection signal="timeout" from="respawnTimer" to="." method="_on_respawnTimer_timeout"]
