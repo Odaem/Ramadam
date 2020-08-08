@@ -10,4 +10,3 @@ func _on_respawnTimer_timeout():
 	r.set_meta("type", "rocket")
 	r.position = Vector2(xLoc,yLoc)
 	
-

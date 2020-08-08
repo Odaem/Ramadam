@@ -1,8 +1,8 @@
 extends RigidBody2D
 class_name RewindableRigidBody2D
 
-export(NodePath) var rewinder_path
-onready var rew: Rewinder = get_node(rewinder_path) as Rewinder
+#export(NodePath) var rewinder_path
+var rew: Rewinder
 
 onready var v_transform = transform
 onready var v_linear_velocity = linear_velocity
@@ -27,6 +27,11 @@ var hovered = false
 
 
 func _ready():
+	for child in get_children():
+		if child is Rewinder:
+			rew = child
+			break
+	
 	assert(rew and rew is Rewinder)
 	rew.saved_paths += saved_paths
 	

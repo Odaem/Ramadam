@@ -61,7 +61,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="spike"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 10 )
-frame = 1
+frame = 5
 playing = true
 
 [node name="MoveTween" type="Tween" parent="."]

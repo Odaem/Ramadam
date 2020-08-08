@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Tilemaps/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game Objects/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Movingspike.gd" type="Script" id=5]
 [ext_resource path="res://RocketSpawner.gd" type="Script" id=6]
 [ext_resource path="res://Textures/Saw/On (38x38).png" type="Texture" id=7]
+[ext_resource path="res://Game Objects/Spike.gd" type="Script" id=8]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 7 )
@@ -65,7 +66,11 @@ position = Vector2( 396.364, 328.709 )
 script = ExtResource( 5 )
 general_speed = 10.0
 
-[node name="spike" type="KinematicBody2D" parent="Movingspike"]
+[node name="spike" type="Area2D" parent="Movingspike"]
+monitorable = false
+collision_layer = 16
+collision_mask = 2
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -73,7 +78,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Movingspike/spike"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 9 )
-frame = 4
+frame = 2
 playing = true
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Movingspike/spike"]
@@ -90,7 +95,10 @@ script = ExtResource( 5 )
 start_offset = Vector2( 225, 0 )
 end_offset = Vector2( 200, 0 )
 
-[node name="spike" type="KinematicBody2D" parent="Movingspike2"]
+[node name="spike" type="Area2D" parent="Movingspike2"]
+monitorable = false
+collision_layer = 16
+collision_mask = 2
 __meta__ = {
 "_edit_group_": true
 }
@@ -98,7 +106,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Movingspike2/spike"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 9 )
-frame = 4
+frame = 2
 playing = true
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Movingspike2/spike"]
@@ -116,7 +124,10 @@ general_speed = 17.5
 start_offset = Vector2( 450, 0 )
 end_offset = Vector2( 350, 0 )
 
-[node name="spike" type="KinematicBody2D" parent="Movingspike3"]
+[node name="spike" type="Area2D" parent="Movingspike3"]
+monitorable = false
+collision_layer = 16
+collision_mask = 2
 __meta__ = {
 "_edit_group_": true
 }
@@ -127,7 +138,7 @@ shape = SubResource( 10 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Movingspike3/spike"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 9 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="MoveTween" type="Tween" parent="Movingspike3"]
@@ -142,7 +153,10 @@ general_speed = 20.0
 start_offset = Vector2( 650, 0 )
 end_offset = Vector2( 700, 0 )
 
-[node name="spike" type="KinematicBody2D" parent="Movingspike4"]
+[node name="spike" type="Area2D" parent="Movingspike4"]
+monitorable = false
+collision_layer = 16
+collision_mask = 2
 __meta__ = {
 "_edit_group_": true
 }
@@ -153,7 +167,7 @@ shape = SubResource( 10 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Movingspike4/spike"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 9 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="MoveTween" type="Tween" parent="Movingspike4"]
@@ -167,7 +181,10 @@ script = ExtResource( 5 )
 start_offset = Vector2( 900, 0 )
 end_offset = Vector2( 975, 0 )
 
-[node name="spike" type="KinematicBody2D" parent="Movingspike5"]
+[node name="spike" type="Area2D" parent="Movingspike5"]
+monitorable = false
+collision_layer = 16
+collision_mask = 2
 __meta__ = {
 "_edit_group_": true
 }
@@ -178,7 +195,7 @@ shape = SubResource( 10 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Movingspike5/spike"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 9 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="MoveTween" type="Tween" parent="Movingspike5"]
@@ -190,8 +207,9 @@ playback/repeat = true
 tile_data = PoolIntArray( 393218, -1610612693, 0, 393219, -1610612693, 0, 393220, -1610612693, 0, 393221, -1610612693, 0, 393222, -1610612693, 0, 393223, -1610612693, 0, 393224, -1610612693, 0, 393225, -1610612693, 0, 393226, -1610612693, 0, 393227, -1610612693, 0, 393228, -1610612693, 0, 393229, -1610612693, 0, 393231, -1610612693, 0, 393232, -1610612693, 0, 393233, -1610612693, 0, 393234, -1610612693, 0, 393235, -1610612693, 0, 393236, -1610612693, 0, 393237, -1610612693, 0, 393238, -1610612693, 0, 393239, -1610612693, 0, 393241, -1610612693, 0, 393242, -1610612693, 0, 393243, -1610612693, 0, 393244, -1610612693, 0, 393245, -1610612693, 0, 393246, -1610612693, 0, 393247, -1610612693, 0, 393248, -1610612693, 0, 393249, -1610612693, 0, 393250, -1610612693, 0, 393251, -1610612693, 0, 393252, -1610612693, 0, 393253, -1610612693, 0, 393255, -1610612693, 0, 393256, -1610612693, 0, 393257, -1610612693, 0, 393258, -1610612693, 0, 393259, -1610612693, 0, 393260, -1610612693, 0, 393261, -1610612693, 0, 393262, -1610612693, 0, 393263, -1610612693, 0, 393264, -1610612693, 0, 393265, -1610612693, 0, 393266, -1610612693, 0, 393267, -1610612693, 0, 393268, -1610612693, 0, 393270, -1610612693, 0, 393272, -1610612693, 0, 393274, -1610612693, 0, 393276, -1610612693, 0, 393278, -1610612693, 0, 393280, 536870955, 0, 393282, 536870955, 0, 393284, 536870955, 0, 393286, 536870955, 0, 393288, 536870955, 0, 393290, 536870955, 0, 393292, 536870955, 0, 393294, 536870955, 0, 393296, 536870955, 0, 393298, 536870955, 0, 393300, 536870955, 0, 393302, 536870955, 0, 393304, 536870955, 0, 393306, 536870955, 0, 393308, 536870955, 0, 393310, 536870955, 0, 393312, 536870955, 0, 393314, 536870955, 0, 393316, 536870955, 0, 393318, 536870955, 0, 393320, 536870955, 0, 393322, 43, 0, 393323, 43, 0, 393324, 43, 0, 458856, 43, 0, 524290, -1610612693, 0, 524292, 536870937, 0, 524296, -1610612736, 0, 524304, -1610612736, 0, 524312, -1610612736, 0, 524320, -1610612736, 0, 524328, -1610612736, 0, 524336, -1610612736, 0, 524344, -1610612736, 0, 524352, -1610612736, 0, 524360, -1610612736, 0, 524368, -1610612736, 0, 524376, -1610612736, 0, 524384, -1610612736, 0, 524394, 25, 0, 589826, -1610612693, 0, 589832, -536870865, 0, 589837, -536870865, 0, 589841, -536870865, 0, 589843, -536870865, 0, 589847, -536870865, 0, 589852, -536870865, 0, 589855, -536870865, 0, 589858, -536870865, 0, 589866, -536870865, 0, 589871, -536870865, 0, 589875, -536870865, 0, 589880, -536870865, 0, 589884, -536870865, 0, 589928, 48, 0, 655362, -1610612693, 0, 720898, -1610612693, 0, 786436, 0, 0, 786540, 1073741843, 0, 851970, -1610612693, 0, 852076, 1073741843, 0, 983042, -1610612693, 0, 1114114, -1610612693, 0, 1245186, -1610612693, 0, 1245188, 1610612761, 0, 1245290, 1073741849, 0, 1376258, -1610612693, 0, 1376264, 536870919, 0, 1376278, 7, 0, 1376292, 7, 0, 1376306, 7, 0, 1376320, 7, 0, 1376334, 7, 0, 1376346, 536870919, 0, 1376360, 24, 0, 1441800, 536870963, 0, 1441806, 536870963, 0, 1441812, 536870963, 0, 1441818, 536870963, 0, 1441824, 536870963, 0, 1441830, 536870963, 0, 1441836, 536870963, 0, 1441842, 536870963, 0, 1441848, 536870963, 0, 1441854, 536870963, 0, 1441860, 536870963, 0, 1441866, 536870963, 0, 1441872, 536870963, 0, 1441878, 536870963, 0, 1441884, 536870963, 0, 1441890, 536870963, 0, 1441896, 536870963, 0, 1507330, -1610612693, 0, 1507332, -1610612693, 0, 1507333, 43, 0, 1507334, 43, 0, 1507336, 43, 0, 1507337, 43, 0, 1507338, 43, 0, 1507340, 43, 0, 1507341, 43, 0, 1507342, 43, 0, 1507344, -1610612693, 0, 1507346, 43, 0, 1507347, 43, 0, 1507348, 43, 0, 1507350, 536870955, 0, 1507351, 536870955, 0, 1507352, 536870955, 0, 1507353, 536870955, 0, 1507354, 536870955, 0, 1507355, 536870955, 0, 1507356, 536870955, 0, 1507357, 536870955, 0, 1507358, 536870955, 0, 1507359, 536870955, 0, 1507360, 536870955, 0, 1507361, 536870955, 0, 1507363, 536870955, 0, 1507364, 536870955, 0, 1507365, 536870955, 0, 1507366, 536870955, 0, 1507368, 1073741867, 0, 1507370, 1073741867, 0, 1507372, 1073741867, 0, 1507374, 1073741867, 0, 1507376, 1073741867, 0, 1507378, 1073741867, 0, 1507380, 1073741867, 0, 1507381, 1073741867, 0, 1507382, 1073741867, 0, 1507383, 1073741867, 0, 1507384, 1073741867, 0, 1507386, 1073741867, 0, 1507387, 1073741867, 0, 1507388, 1073741867, 0, 1507389, 1073741867, 0, 1507390, 1073741867, 0, 1507392, 536870955, 0, 1507393, 536870955, 0, 1507394, 536870955, 0, 1507395, 536870955, 0, 1507396, 536870955, 0, 1507397, 536870955, 0, 1507398, 536870955, 0, 1507399, 536870955, 0, 1507400, 536870955, 0, 1507401, 536870955, 0, 1507402, 536870955, 0, 1507403, 536870955, 0, 1507404, 536870955, 0, 1507405, 536870955, 0, 1507406, 536870955, 0, 1507407, 536870955, 0, 1507408, 536870955, 0, 1507409, 536870955, 0, 1507410, 536870955, 0, 1507411, 536870955, 0, 1507412, 536870955, 0, 1507413, 536870955, 0, 1507415, 536870955, 0, 1507416, 536870955, 0, 1507417, 536870955, 0, 1507418, 536870955, 0, 1507419, 536870955, 0, 1507420, 536870955, 0, 1507421, 536870955, 0, 1507423, 536870955, 0, 1507424, 536870955, 0, 1507425, 536870955, 0, 1507426, 536870955, 0, 1507427, 536870955, 0, 1507428, 536870955, 0, 1507429, 536870955, 0, 1507430, 536870955, 0, 1507431, 536870955, 0, 1507432, 536870955, 0, 1507433, 536870955, 0, 1507434, 536870955, 0, 1507436, 43, 0 )
 
 [node name="respawnTimer" type="Timer" parent="."]
+wait_time = 5.0
 autostart = true
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 212.868, 293.734 )
+position = Vector2( 220, 304 )
 [connection signal="timeout" from="respawnTimer" to="." method="_on_respawnTimer_timeout"]

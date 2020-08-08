@@ -44,7 +44,7 @@ func _process(delta):
 			hover.dehover()
 		hover = null
 	
-	$Label.text = "hover: " + str(hover) + "\nselected: " + str(selected)
+	$CanvasLayer/Label.text = "hover: " + str(hover) + "\nselected: " + str(selected)
 	
 	if selected:
 		if not selected.active:
@@ -58,14 +58,14 @@ func _process(delta):
 			$SpeedDisplayPos.hide()
 		
 		if not selected.active:
-			$CenterContainer/ProgressBar.show()
-			$CenterContainer/ProgressBar.max_value = selected.rew.max_time
-			$CenterContainer/ProgressBar.value = selected.rew.time_cursor
+			$CanvasLayer/CenterContainer/ProgressBar.show()
+			$CanvasLayer/CenterContainer/ProgressBar.max_value = selected.rew.max_time
+			$CanvasLayer/CenterContainer/ProgressBar.value = selected.rew.time_cursor
 		else:
-			$CenterContainer/ProgressBar.hide()
+			$CanvasLayer/CenterContainer/ProgressBar.hide()
 	else:
 		$SpeedDisplayPos.hide()
-		$CenterContainer/ProgressBar.hide()
+		$CanvasLayer/CenterContainer/ProgressBar.hide()
 
 
 func _input(event):
