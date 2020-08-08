@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://old attempt/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilemaps/Level.tscn" type="PackedScene" id=2]
@@ -7,8 +7,6 @@
 [ext_resource path="res://Tilemaps/Background.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Lights/light-04.png" type="Texture" id=6]
 [ext_resource path="res://Lights/light-02.png" type="Texture" id=7]
-[ext_resource path="res://Textures/6665671_thumb.png" type="Texture" id=8]
-[ext_resource path="res://Textures/torch-B-01-Sheet-export.png" type="Texture" id=9]
 [ext_resource path="res://debris/debris_two.png" type="Texture" id=10]
 [ext_resource path="res://debris/debris_six.png" type="Texture" id=11]
 [ext_resource path="res://debris/debris_one.png" type="Texture" id=12]
@@ -22,44 +20,6 @@ extents = Vector2( 7.97776, 7.3279 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 7.98614, 7.3059 )
-
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 0, 0, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 16, 0, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 32, 0, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 48, 0, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=8]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 64, 0, 16, 32 )
-
-[sub_resource type="SpriteFrames" id=9]
-animations = [ {
-"frames": [ SubResource( 4 ) ],
-"loop": true,
-"name": "Off",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
-"loop": true,
-"name": "Glow",
-"speed": 5.0
-} ]
 
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
@@ -80,7 +40,7 @@ tile_data = PoolIntArray( 524293, 43, 0, 524294, 43, 0, 524296, 43, 0, 524297, 4
 [node name="Debris Pieces" type="Node2D" parent="."]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Debris Pieces"]
-position = Vector2( 400, 335.56 )
+position = Vector2( 399.802, 335.362 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -94,7 +54,7 @@ position = Vector2( -1, -2 )
 texture = ExtResource( 12 )
 
 [node name="RigidBody2D2" type="RigidBody2D" parent="Debris Pieces"]
-position = Vector2( 480, 336 )
+position = Vector2( 489.133, 334.998 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -108,7 +68,7 @@ position = Vector2( -1, -2 )
 texture = ExtResource( 12 )
 
 [node name="RigidBody2D3" type="RigidBody2D" parent="Debris Pieces"]
-position = Vector2( 424, 336 )
+position = Vector2( 421.818, 336.07 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -122,7 +82,7 @@ position = Vector2( -2, -5 )
 texture = ExtResource( 10 )
 
 [node name="RigidBody2D4" type="RigidBody2D" parent="Debris Pieces"]
-position = Vector2( 462, 335.56 )
+position = Vector2( 466.347, 335.572 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -136,7 +96,7 @@ position = Vector2( -2, -5 )
 texture = ExtResource( 10 )
 
 [node name="RigidBody2D5" type="RigidBody2D" parent="Debris Pieces"]
-position = Vector2( 528, 335.56 )
+position = Vector2( 531.277, 334.314 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -149,8 +109,22 @@ shape = SubResource( 1 )
 position = Vector2( -1, -2 )
 texture = ExtResource( 12 )
 
+[node name="RigidBody2D9" type="RigidBody2D" parent="Debris Pieces"]
+position = Vector2( 560.461, 334.594 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Debris Pieces/RigidBody2D9"]
+position = Vector2( 0, -7.50891 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Debris Pieces/RigidBody2D9"]
+position = Vector2( -1, -2 )
+texture = ExtResource( 12 )
+
 [node name="RigidBody2D6" type="RigidBody2D" parent="Debris Pieces"]
-position = Vector2( 440, 336 )
+position = Vector2( 436.828, 335.746 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -164,7 +138,7 @@ position = Vector2( 0, -8 )
 texture = ExtResource( 11 )
 
 [node name="RigidBody2D7" type="RigidBody2D" parent="Debris Pieces"]
-position = Vector2( 504, 336 )
+position = Vector2( 511.93, 335.051 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -178,7 +152,7 @@ position = Vector2( 0, -8 )
 texture = ExtResource( 11 )
 
 [node name="RigidBody2D8" type="RigidBody2D" parent="Debris Pieces"]
-position = Vector2( 448, 336 )
+position = Vector2( 452.056, 335.786 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -191,42 +165,16 @@ shape = SubResource( 3 )
 position = Vector2( 0, -8 )
 texture = ExtResource( 11 )
 
-[node name="RigidBody2D9" type="RigidBody2D" parent="Debris Pieces"]
-position = Vector2( 560, 336 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Debris Pieces/RigidBody2D9"]
-position = Vector2( 0, -7.50891 )
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="Debris Pieces/RigidBody2D9"]
-position = Vector2( -1, -2 )
-texture = ExtResource( 12 )
-
 [node name="Decors" parent="." instance=ExtResource( 13 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 180.469, 335.56 )
 
-[node name="Light2D" type="Light2D" parent="Player"]
-position = Vector2( 3.30334, -9.37292 )
-scale = Vector2( 0.253389, 0.2342 )
-texture = ExtResource( 8 )
-energy = 2.0
-
-[node name="Light Side" type="AnimatedSprite" parent="."]
-position = Vector2( 120.419, 228.565 )
-frames = SubResource( 9 )
-animation = "Off"
-playing = true
-
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( 479.854, 264.753 )
 frames = SubResource( 10 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]

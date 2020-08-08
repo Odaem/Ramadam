@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Textures/other_and_decorative.png" type="Texture" id=1]
+[ext_resource path="res://Textures/Main_Tileset I.png" type="Texture" id=2]
 
-
-[sub_resource type="TileSet" id=38]
+[sub_resource type="TileSet" id=1]
 0/name = "other_and_decorative.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -830,9 +830,23 @@
 58/shape_one_way_margin = 0.0
 58/shapes = [  ]
 58/z_index = 0
+59/name = "Main_Tileset I.png 59"
+59/texture = ExtResource( 2 )
+59/tex_offset = Vector2( 0, 0 )
+59/modulate = Color( 1, 1, 1, 1 )
+59/region = Rect2( 816, 112, 32, 176 )
+59/tile_mode = 0
+59/occluder_offset = Vector2( 0, 0 )
+59/navigation_offset = Vector2( 0, 0 )
+59/shape_offset = Vector2( 0, 0 )
+59/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+59/shape_one_way = false
+59/shape_one_way_margin = 0.0
+59/shapes = [  ]
+59/z_index = 0
 
 [node name="Decors" type="TileMap"]
-tile_set = SubResource( 38 )
+tile_set = SubResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 720908, 1, 0, 720912, 0, 0, 720928, 57, 0, 720937, 46, 0, 720938, 46, 0, 720941, 46, 0, 720942, 46, 0, 851978, 55, 0, 851983, 55, 0, 852011, 536870940, 0, 852012, 28, 0, 1114128, 14, 0, 1114151, 25, 0, 1114152, 26, 0, 1179655, 4, 0, 1179687, 3, 0, 1245191, 5, 0, 1245195, 10, 0, 1245196, 11, 0, 1245200, 13, 0, 1310727, 3, 0, 1310731, 2, 0, 1310739, 9, 0, 1310740, 8, 0, 2293792, 9, 0, 2293793, 8, 0 )

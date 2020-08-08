@@ -39,11 +39,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Time Rewind Prototype"
-run/main_scene="res://new_scenes/ObstacleTwo_newPlayerTest.tscn"
-config/icon="res://Textures/Jump (32x32).png"
+run/main_scene="res://new_scenes/ObstacleThree.tscn"
+config/icon="res://icon.png"
 
 [display]
 
+window/size/width=2048
 window/size/resizable=false
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
